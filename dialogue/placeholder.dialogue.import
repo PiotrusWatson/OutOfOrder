@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://bmrrix684pmho"
+path="res://.godot/imported/placeholder.dialogue-45b3e1b91ad24ef71de1da49bcaea0b6.tres"
+
+[deps]
+
+source_file="res://dialogue/placeholder.dialogue"
+dest_files=["res://.godot/imported/placeholder.dialogue-45b3e1b91ad24ef71de1da49bcaea0b6.tres"]
+
+[params]
+
+defaults=true
