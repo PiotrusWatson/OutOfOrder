@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://iecttj37eben"]
+[gd_scene load_steps=11 format=3 uid="uid://iecttj37eben"]
 
 [ext_resource type="Texture2D" uid="uid://2dp1eash0ipr" path="res://placeholder/Sam_Lake-MichaelFörtsch.jpg" id="1_cj4si"]
 [ext_resource type="PackedScene" uid="uid://1g4kseonxcrk" path="res://prefabs/player.tscn" id="2_ye8v5"]
@@ -6,12 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://b1w1rlrtubbm0" path="res://prefabs/camera.tscn" id="4_yd5d7"]
 [ext_resource type="Texture2D" uid="uid://cb1handcswdnd" path="res://placeholder/duo.jpg" id="5_dnfut"]
 [ext_resource type="Texture2D" uid="uid://br3mkbdxqkpdf" path="res://placeholder/hackerman2.jpeg" id="6_g8c3v"]
+[ext_resource type="Script" path="res://worlds/yapper.gd" id="7_hqdw8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytvnc"]
 size = Vector2(1231.5, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0qqi"]
 size = Vector2(20, 498)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6q4px"]
+radius = 353.396
 
 [node name="World" type="Node2D"]
 position = Vector2(-523, -2)
@@ -35,7 +39,7 @@ shape = SubResource("RectangleShape2D_a0qqi")
 position = Vector2(1214, 240)
 shape = SubResource("RectangleShape2D_a0qqi")
 
-[node name="Player" parent="." instance=ExtResource("2_ye8v5")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_ye8v5")]
 script = ExtResource("3_hrha7")
 
 [node name="Camera" parent="." node_paths=PackedStringArray("thing_to_follow") instance=ExtResource("4_yd5d7")]
@@ -53,3 +57,20 @@ texture = ExtResource("5_dnfut")
 position = Vector2(684, 409)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_g8c3v")
+script = ExtResource("7_hqdw8")
+
+[node name="AudibleDialogueZone" type="Area2D" parent="Yapper"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Yapper/AudibleDialogueZone"]
+shape = SubResource("CircleShape2D_6q4px")
+
+[node name="Components" type="Node" parent="Yapper"]
+
+[node name="DialogueHandler" type="Node" parent="Yapper/Components"]
+
+[node name="DialogueTimer" type="Timer" parent="Yapper"]
+wait_time = 3.0
+autostart = true
+
+[connection signal="body_entered" from="Yapper/AudibleDialogueZone" to="Yapper" method="_on_audible_dialogue_zone_body_entered"]
+[connection signal="timeout" from="Yapper/DialogueTimer" to="Yapper" method="_on_dialogue_timer_timeout"]
