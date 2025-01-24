@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://iecttj37eben"]
 
-[ext_resource type="Texture2D" uid="uid://2dp1eash0ipr" path="res://placeholder/Sam_Lake-MichaelFörtsch.jpg" id="1_250sy"]
-[ext_resource type="PackedScene" uid="uid://1g4kseonxcrk" path="res://prefabs/player.tscn" id="2_rpjp3"]
-[ext_resource type="Script" path="res://prefabs/player.gd" id="3_ivdl4"]
-[ext_resource type="PackedScene" uid="uid://b1w1rlrtubbm0" path="res://prefabs/camera.tscn" id="3_rpk01"]
-[ext_resource type="Texture2D" uid="uid://cb1handcswdnd" path="res://placeholder/duo.jpg" id="5_g4o1w"]
+[ext_resource type="Texture2D" uid="uid://2dp1eash0ipr" path="res://placeholder/Sam_Lake-MichaelFörtsch.jpg" id="1_cj4si"]
+[ext_resource type="PackedScene" uid="uid://1g4kseonxcrk" path="res://prefabs/player.tscn" id="2_ye8v5"]
+[ext_resource type="Script" path="res://prefabs/player.gd" id="3_hrha7"]
+[ext_resource type="PackedScene" uid="uid://b1w1rlrtubbm0" path="res://prefabs/camera.tscn" id="4_yd5d7"]
+[ext_resource type="Texture2D" uid="uid://cb1handcswdnd" path="res://placeholder/duo.jpg" id="5_dnfut"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytvnc"]
 size = Vector2(1231.5, 40)
@@ -13,6 +13,7 @@ size = Vector2(1231.5, 40)
 size = Vector2(20, 498)
 
 [node name="World" type="Node2D"]
+position = Vector2(-523, -2)
 
 [node name="Boundaries" type="StaticBody2D" parent="."]
 
@@ -23,7 +24,7 @@ shape = SubResource("RectangleShape2D_ytvnc")
 [node name="FloorSprite" type="Sprite2D" parent="Boundaries/Floor"]
 position = Vector2(1.25, 4.5)
 scale = Vector2(1.52375, 0.0432204)
-texture = ExtResource("1_250sy")
+texture = ExtResource("1_cj4si")
 
 [node name="LeftWall" type="CollisionShape2D" parent="Boundaries"]
 position = Vector2(0, 239)
@@ -33,10 +34,10 @@ shape = SubResource("RectangleShape2D_a0qqi")
 position = Vector2(1214, 240)
 shape = SubResource("RectangleShape2D_a0qqi")
 
-[node name="Player" parent="." instance=ExtResource("2_rpjp3")]
-script = ExtResource("3_ivdl4")
+[node name="Player" parent="." instance=ExtResource("2_ye8v5")]
+script = ExtResource("3_hrha7")
 
-[node name="Camera" parent="." node_paths=PackedStringArray("thing_to_follow") instance=ExtResource("3_rpk01")]
+[node name="Camera" parent="." node_paths=PackedStringArray("thing_to_follow") instance=ExtResource("4_yd5d7")]
 position = Vector2(11, 0)
 zoom = Vector2(3, 3)
 thing_to_follow = NodePath("../Player")
@@ -45,4 +46,6 @@ thing_to_follow = NodePath("../Player")
 z_index = -3
 position = Vector2(608, 376)
 scale = Vector2(0.5, 0.1)
-texture = ExtResource("5_g4o1w")
+texture = ExtResource("5_dnfut")
+
+[node name="Yapper" type="Sprite2D" parent="."]
