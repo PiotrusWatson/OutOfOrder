@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://1g4kseonxcrk"]
+
+[ext_resource type="Texture2D" uid="uid://bsumlgcbj2r6d" path="res://placeholder/TOES.jpg" id="1_g3qia"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_018eu"]
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(229, 273)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_018eu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, -0.281248)
+scale = Vector2(0.0481283, 0.0580074)
+texture = ExtResource("1_g3qia")
