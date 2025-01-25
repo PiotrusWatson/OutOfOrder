@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs5xpyhuhjjan"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_bxdj7"]
+[ext_resource type="Script" path="res://instructions.gd" id="2_h6dwi"]
+[ext_resource type="FontFile" uid="uid://qxopvowgib3v" path="res://textures/CHUBBY.TTF" id="2_l2cvm"]
+
+[node name="Instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bxdj7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.427451, 0.909804, 0.878431, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1153.0
+offset_bottom = 649.0
+theme_override_fonts/normal_font = ExtResource("2_l2cvm")
+theme_override_font_sizes/normal_font_size = 34
+bbcode_enabled = true
+text = "
+
+
+
+[center] - To move: Left and Right, or A and D
+- To win, you need to order a Bubble Tea!
+- Move around the Shopping Mall and collect
+different words that can help you order a
+bubble tea by clicking on them.
+- When you think you collected enough
+words, go ahead and order!
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+script = ExtResource("2_h6dwi")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

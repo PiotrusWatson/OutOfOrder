@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxl4fvgs4am2n"]
+[gd_scene load_steps=10 format=3 uid="uid://b7m12qi47yq6q"]
 
 [ext_resource type="Texture2D" uid="uid://qkyqtuvra4ab" path="res://textures/Play Button.png" id="1_dv6a0"]
 [ext_resource type="Texture2D" uid="uid://dug1bmnkmvcc5" path="res://textures/Exit Button.png" id="1_jin4g"]
@@ -55,6 +55,7 @@ flat = true
 script = ExtResource("4_dffnu")
 
 [node name="Credits" type="Button" parent="."]
+layout_mode = 0
 offset_left = 593.0
 offset_top = 477.0
 offset_right = 723.0
@@ -64,6 +65,7 @@ flat = true
 script = ExtResource("5_bskbm")
 
 [node name="Exit" type="Button" parent="."]
+layout_mode = 0
 offset_left = 743.0
 offset_top = 477.0
 offset_right = 873.0
