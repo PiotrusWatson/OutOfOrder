@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxl4fvgs4am2n"]
+
+[ext_resource type="Texture2D" uid="uid://qkyqtuvra4ab" path="res://textures/Play Button.png" id="1_dv6a0"]
+[ext_resource type="Texture2D" uid="uid://dug1bmnkmvcc5" path="res://textures/Exit Button.png" id="1_jin4g"]
+[ext_resource type="Texture2D" uid="uid://e0gyqn7e0as3" path="res://textures/Instructions Button.png" id="2_kh45l"]
+[ext_resource type="Texture2D" uid="uid://b12311x2m24ui" path="res://textures/Credits Button.png" id="3_vh32p"]
+[ext_resource type="Script" path="res://worlds/exit.gd" id="5_3qvjo"]
+[ext_resource type="Script" path="res://worlds/creditsButton.gd" id="5_bskbm"]
+[ext_resource type="Texture2D" uid="uid://bpjkqn71ng834" path="res://textures/Title Asset.png" id="5_hhmdk"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 27.0
+offset_right = 876.0
+offset_bottom = 447.0
+texture = ExtResource("5_hhmdk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+z_as_relative = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.4277, 0.91, 0.877847, 1)
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 293.0
+offset_top = 477.0
+offset_right = 423.0
+offset_bottom = 607.0
+icon = ExtResource("1_dv6a0")
+flat = true
+
+[node name="Instructions" type="Button" parent="."]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 477.0
+offset_right = 573.0
+offset_bottom = 607.0
+icon = ExtResource("2_kh45l")
+flat = true
+
+[node name="Credits" type="Button" parent="."]
+offset_left = 593.0
+offset_top = 477.0
+offset_right = 723.0
+offset_bottom = 607.0
+icon = ExtResource("3_vh32p")
+flat = true
+script = ExtResource("5_bskbm")
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 743.0
+offset_top = 477.0
+offset_right = 873.0
+offset_bottom = 607.0
+icon = ExtResource("1_jin4g")
+flat = true
+script = ExtResource("5_3qvjo")
+
+[connection signal="pressed" from="Credits" to="Credits" method="_on_pressed"]
+[connection signal="pressed" from="Exit" to="Exit" method="_on_pressed"]
