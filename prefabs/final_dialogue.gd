@@ -7,9 +7,12 @@ var answers = []
 var answer_index = 0
 signal order_submitted(order)
 
+func show_dialogue():
+	visible = true
+	
+func hide_dialogue():
+	visible = false
 
-func toggle_visible(is_visible):
-	visible = is_visible
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,7 +20,7 @@ func _ready() -> void:
 		var answer = answer_prefab.instantiate()
 		answers.append(answer)
 		answer_box.add_child(answer)
-	toggle_visible(false)
+	hide_dialogue()
 		
 func fill_answer_at_index(word):
 	if answer_index >= answer_num:

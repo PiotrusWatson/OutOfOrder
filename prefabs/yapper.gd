@@ -3,6 +3,7 @@ extends Node2D
 @export var placeholder_dialogue: DialogueResource = load("res://dialogue/placeholder.dialogue")
 var current_line: DialogueLine = null
 signal player_can_hear(text)
+signal player_cannot_hear()
 signal new_line_spoken(text)
 signal dialogue_over
 var finished = false
@@ -36,3 +37,8 @@ func set_current_line(text):
 	current_line = text
 	new_line_spoken.emit(text.text)
 	
+
+
+func _on_audible_dialogue_zone_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		player_cannot_hear.emit()
