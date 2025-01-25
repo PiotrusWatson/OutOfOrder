@@ -28,4 +28,5 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_1vij2")
 
 [connection signal="body_entered" from="AudibleDialogueZone" to="." method="_on_audible_dialogue_zone_body_entered"]
+[connection signal="body_exited" from="AudibleDialogueZone" to="." method="_on_audible_dialogue_zone_body_exited"]
 [connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]
