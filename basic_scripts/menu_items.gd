@@ -8,9 +8,7 @@ var translator: SynonymTranslator
 func _init():
 	translator = SynonymTranslator.new()
 
-func translate_order(order):
-	var attempted_translation = null
-	var current_translation = []
+
 
 			
 		
