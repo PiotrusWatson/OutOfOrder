@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://b86qthmt5g45m"]
+
+[node name="Timer" type="Timer"]
+autostart = true
