@@ -1,30 +1,23 @@
-[gd_scene load_steps=18 format=3 uid="uid://iecttj37eben"]
+[gd_scene load_steps=15 format=3 uid="uid://iecttj37eben"]
 
 [ext_resource type="Script" path="res://worlds/signals.gd" id="1_bodad"]
 [ext_resource type="Texture2D" uid="uid://2dp1eash0ipr" path="res://placeholder/Sam_Lake-MichaelFörtsch.jpg" id="1_cj4si"]
 [ext_resource type="PackedScene" uid="uid://1g4kseonxcrk" path="res://prefabs/player.tscn" id="2_ye8v5"]
-[ext_resource type="Script" path="res://prefabs/player.gd" id="3_hrha7"]
 [ext_resource type="PackedScene" uid="uid://b1w1rlrtubbm0" path="res://prefabs/camera.tscn" id="4_yd5d7"]
 [ext_resource type="Texture2D" uid="uid://cb1handcswdnd" path="res://placeholder/duo.jpg" id="5_dnfut"]
 [ext_resource type="PackedScene" uid="uid://o43k2vl0nf6h" path="res://prefabs/yapper.tscn" id="7_0kw6l"]
 [ext_resource type="PackedScene" uid="uid://d0qo416dox75d" path="res://prefabs/stripped_down_balloon.tscn" id="8_4cujq"]
-[ext_resource type="Script" path="res://worlds/god.gd" id="9_g2a6m"]
+[ext_resource type="Script" path="res://prefabs/god.gd" id="9_g2a6m"]
 [ext_resource type="PackedScene" uid="uid://bifc74gwgkwkc" path="res://prefabs/word_button.tscn" id="9_r7pgv"]
 [ext_resource type="PackedScene" uid="uid://eevv3fvkot16" path="res://prefabs/inventory.tscn" id="11_y35q3"]
+[ext_resource type="PackedScene" uid="uid://dwt80p7kqmygh" path="res://prefabs/final_dialogue.tscn" id="12_2furq"]
 [ext_resource type="PackedScene" uid="uid://b50ep48ntx8cl" path="res://prefabs/buble_tea.tscn" id="12_fgaj4"]
-[ext_resource type="Script" path="res://worlds/final_dialogue.gd" id="14_th8x8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytvnc"]
 size = Vector2(1231.5, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0qqi"]
 size = Vector2(20, 498)
-
-[sub_resource type="Gradient" id="Gradient_35l33"]
-offsets = PackedFloat32Array(0.974026, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_pg3qg"]
-gradient = SubResource("Gradient_35l33")
 
 [node name="World" type="Node2D"]
 position = Vector2(-523, -2)
@@ -52,7 +45,6 @@ shape = SubResource("RectangleShape2D_a0qqi")
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_ye8v5")]
 z_index = 2
 position = Vector2(390, 388)
-script = ExtResource("3_hrha7")
 
 [node name="Camera" parent="." node_paths=PackedStringArray("thing_to_follow") instance=ExtResource("4_yd5d7")]
 position = Vector2(11, 0)
@@ -78,59 +70,4 @@ script = ExtResource("9_g2a6m")
 [node name="BubleTea" parent="." instance=ExtResource("12_fgaj4")]
 position = Vector2(1069, 413)
 
-[node name="FinalDialogue" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("14_th8x8")
-answer_prefab = ExtResource("9_r7pgv")
-
-[node name="Control" type="Control" parent="FinalDialogue"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="FinalDialogue/Control"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 2.0
-offset_top = -178.0
-offset_right = 2.0
-offset_bottom = 122.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("GradientTexture1D_pg3qg")
-
-[node name="Vendor Question" type="Label" parent="FinalDialogue/Control/TextureRect"]
-layout_mode = 0
-offset_left = 45.0
-offset_top = 34.0
-offset_right = 336.0
-offset_bottom = 57.0
-text = "Vendor: What're you 'avin then mate?"
-
-[node name="AnswerPrompt" type="Label" parent="FinalDialogue/Control/TextureRect"]
-layout_mode = 0
-offset_left = 49.0
-offset_top = 59.0
-offset_right = 89.0
-offset_bottom = 82.0
-text = "You: Ohhh uhhhhh a "
-
-[node name="Answers" type="HBoxContainer" parent="FinalDialogue/Control/TextureRect"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -930.0
-offset_top = -94.0
-offset_right = -30.0
-offset_bottom = -54.0
-grow_horizontal = 0
-grow_vertical = 2
+[node name="FinalDialogue" parent="." instance=ExtResource("12_2furq")]

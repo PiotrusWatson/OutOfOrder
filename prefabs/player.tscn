@@ -39,7 +39,7 @@ texture = ExtResource("1_654cs")
 position = Vector2(62.3335, -322.696)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_qk27t")
-frame_progress = 0.206637
+frame_progress = 0.403695
 
 [node name="Components" type="Node" parent="."]
 

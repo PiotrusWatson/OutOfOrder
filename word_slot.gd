@@ -1,16 +1,15 @@
-extends ReferenceRect
+extends Label
 
-@onready var word_label = $Label
 var is_full = false
 # Called when the node enters the scene tree for the first time.
 
 func fill_slot(word):
-	word_label.text = word
+	text = word
 	is_full = true
 	
 func reset_slot():
-	word_label.text = ""
+	text = ""
 	is_full = false
 
 func get_word():
-	return word_label.text
+	return text

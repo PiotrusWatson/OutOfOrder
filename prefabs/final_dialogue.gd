@@ -5,6 +5,7 @@ extends CanvasLayer
 @export var answer_prefab: PackedScene
 var answers = []
 var answer_index = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(answer_num):
