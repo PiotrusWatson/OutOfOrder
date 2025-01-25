@@ -7,12 +7,17 @@ var answers = []
 var answer_index = 0
 signal order_submitted(order)
 
+
+func toggle_visible(is_visible):
+	visible = is_visible
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(answer_num):
 		var answer = answer_prefab.instantiate()
 		answers.append(answer)
 		answer_box.add_child(answer)
+	toggle_visible(false)
 		
 func fill_answer_at_index(word):
 	if answer_index >= answer_num:
@@ -35,6 +40,7 @@ func submit_order():
 			order.append(answer.get_word())
 			
 	order_submitted.emit(order)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
