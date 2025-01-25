@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b50ep48ntx8cl"]
+
+[ext_resource type="Texture2D" uid="uid://cxwiej3jw3w5k" path="res://placeholder/KIRB.png" id="1_m0gve"]
+[ext_resource type="Texture2D" uid="uid://charlqw6bdyhi" path="res://placeholder/wow_bubble.png" id="2_3tpw3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sk3ft"]
+radius = 444.072
+
+[node name="BubleTea" type="Node2D"]
+
+[node name="Vendor" type="Sprite2D" parent="."]
+z_index = -1
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("1_m0gve")
+
+[node name="Stand" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_3tpw3")
+
+[node name="TriggerArea" type="Area2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_sk3ft")

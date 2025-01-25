@@ -13,6 +13,6 @@ func _ready() -> void:
 		yapper.dialogue_over.connect(dialogue_balloon.hide_balloon)
 	dialogue_balloon.word_picked.connect(god.add_and_trim_word)
 	god.inventory_updated.connect(inventory.update_word_pile)
-# Callded every fdrame. 'delta' is the elapsed time since the previous frame.
+# Callded every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

@@ -4,12 +4,10 @@
 [ext_resource type="Script" path="res://worlds/yapper.gd" id="2_2ia1d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6q4px"]
-radius = 353.396
+radius = 95.01
 
-[node name="Yapper" type="Sprite2D" groups=["Yappers"]]
+[node name="Yapper" type="Node2D" groups=["Yappers"]]
 position = Vector2(684, 409)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_1vij2")
 script = ExtResource("2_2ia1d")
 
 [node name="AudibleDialogueZone" type="Area2D" parent="."]
@@ -24,6 +22,10 @@ shape = SubResource("CircleShape2D_6q4px")
 [node name="DialogueTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_1vij2")
 
 [connection signal="body_entered" from="AudibleDialogueZone" to="." method="_on_audible_dialogue_zone_body_entered"]
 [connection signal="timeout" from="DialogueTimer" to="." method="_on_dialogue_timer_timeout"]
