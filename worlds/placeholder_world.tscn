@@ -79,7 +79,9 @@ script = ExtResource("9_g2a6m")
 position = Vector2(1069, 413)
 
 [node name="FinalDialogue" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("14_th8x8")
+answer_prefab = ExtResource("9_r7pgv")
 
 [node name="Control" type="Control" parent="FinalDialogue"]
 layout_mode = 3

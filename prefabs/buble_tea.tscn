@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b50ep48ntx8cl"]
 
-[ext_resource type="Texture2D" uid="uid://cxwiej3jw3w5k" path="res://placeholder/KIRB.png" id="1_m0gve"]
+[ext_resource type="Texture2D" uid="uid://dr84x4kb4qp0c" path="res://prefabs/yipee.jpg" id="1_8jh1f"]
 [ext_resource type="Texture2D" uid="uid://charlqw6bdyhi" path="res://placeholder/wow_bubble.png" id="2_3tpw3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sk3ft"]
@@ -10,8 +10,9 @@ radius = 444.072
 
 [node name="Vendor" type="Sprite2D" parent="."]
 z_index = -1
+position = Vector2(-16, -38)
 scale = Vector2(0.14, 0.14)
-texture = ExtResource("1_m0gve")
+texture = ExtResource("1_8jh1f")
 
 [node name="Stand" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
