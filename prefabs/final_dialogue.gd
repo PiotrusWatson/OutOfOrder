@@ -5,6 +5,7 @@ extends CanvasLayer
 @export var answer_prefab: PackedScene
 var answers = []
 var answer_index = 0
+signal order_submitted(order)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,7 +33,12 @@ func submit_order():
 	for answer in answers:
 		if answer.is_full:
 			order.append(answer.get_word())
-	return order
+			
+	order_submitted.emit(order)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_submit_answer_pressed() -> void:
+	submit_order()
