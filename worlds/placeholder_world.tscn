@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://d0qo416dox75d" path="res://prefabs/stripped_down_balloon.tscn" id="8_4cujq"]
 [ext_resource type="Script" path="res://prefabs/god.gd" id="9_g2a6m"]
 [ext_resource type="PackedScene" uid="uid://bifc74gwgkwkc" path="res://prefabs/word_button.tscn" id="9_r7pgv"]
-[ext_resource type="PackedScene" uid="uid://eevv3fvkot16" path="res://prefabs/inventory.tscn" id="11_y35q3"]
-[ext_resource type="PackedScene" uid="uid://dwt80p7kqmygh" path="res://prefabs/final_dialogue.tscn" id="12_2furq"]
-[ext_resource type="PackedScene" uid="uid://b50ep48ntx8cl" path="res://prefabs/buble_tea.tscn" id="12_fgaj4"]
+[ext_resource type="PackedScene" path="res://prefabs/inventory.tscn" id="11_y35q3"]
+[ext_resource type="PackedScene" path="res://prefabs/final_dialogue.tscn" id="12_2furq"]
+[ext_resource type="PackedScene" path="res://prefabs/buble_tea.tscn" id="12_fgaj4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytvnc"]
 size = Vector2(1231.5, 40)
