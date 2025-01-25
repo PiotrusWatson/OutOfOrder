@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b6kiy7fnjkjj8"]
+
+[ext_resource type="FontFile" uid="uid://qxopvowgib3v" path="res://textures/CHUBBY.TTF" id="1_kq7h2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ymfx"]
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/fonts/font = ExtResource("1_kq7h2")
+Button/styles/normal = SubResource("StyleBoxEmpty_7ymfx")
