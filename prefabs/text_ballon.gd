@@ -29,7 +29,7 @@ func display_text(text):
 	for word in text.split(" "):
 		var button = button_prefab.instantiate()
 		button.text = word
-		button.word_taken.connect(word_picked)
+		button.word_taken.connect(pick_word)
 		# setup script to take words here
 		text_holder.add_child(button)
 		
@@ -37,3 +37,5 @@ func wipe_text():
 	for child in text_holder.get_children():
 		text_holder.remove_child(child)
 		child.queue_free()
+func pick_word(text):
+	word_picked.emit(text)
