@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://1g4kseonxcrk"]
+[gd_scene load_steps=4 format=3 uid="uid://1g4kseonxcrk"]
 
 [ext_resource type="Texture2D" uid="uid://bsumlgcbj2r6d" path="res://placeholder/TOES.jpg" id="1_g3qia"]
+[ext_resource type="Script" path="res://prefabs/mover.gd" id="2_twjvn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_018eu"]
 
@@ -14,3 +15,8 @@ shape = SubResource("CapsuleShape2D_018eu")
 position = Vector2(2.38419e-07, -0.281248)
 scale = Vector2(0.0481283, 0.0580074)
 texture = ExtResource("1_g3qia")
+
+[node name="Components" type="Node" parent="."]
+
+[node name="Mover" type="Node" parent="Components"]
+script = ExtResource("2_twjvn")

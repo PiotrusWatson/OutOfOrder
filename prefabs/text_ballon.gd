@@ -1,6 +1,9 @@
 extends CanvasLayer
 
 @onready var text_holder = $Balloon/Panel/Dialogue/VBoxContainer/Textholder
+@export var button_prefab: PackedScene
+
+signal word_picked(word)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide_balloon()
@@ -24,8 +27,9 @@ func _process(delta: float) -> void:
 ### when we have a more clear idea of the size the text fits into
 func display_text(text):
 	for word in text.split(" "):
-		var button = Button.new()
+		var button = button_prefab.instantiate()
 		button.text = word
+		button.word_taken.connect(word_picked)
 		# setup script to take words here
 		text_holder.add_child(button)
 		

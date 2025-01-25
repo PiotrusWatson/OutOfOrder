@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://iecttj37eben"]
+[gd_scene load_steps=12 format=3 uid="uid://iecttj37eben"]
 
 [ext_resource type="Script" path="res://worlds/signals.gd" id="1_bodad"]
 [ext_resource type="Texture2D" uid="uid://2dp1eash0ipr" path="res://placeholder/Sam_Lake-MichaelFörtsch.jpg" id="1_cj4si"]
@@ -6,18 +6,15 @@
 [ext_resource type="Script" path="res://prefabs/player.gd" id="3_hrha7"]
 [ext_resource type="PackedScene" uid="uid://b1w1rlrtubbm0" path="res://prefabs/camera.tscn" id="4_yd5d7"]
 [ext_resource type="Texture2D" uid="uid://cb1handcswdnd" path="res://placeholder/duo.jpg" id="5_dnfut"]
-[ext_resource type="Texture2D" uid="uid://br3mkbdxqkpdf" path="res://placeholder/hackerman2.jpeg" id="6_g8c3v"]
-[ext_resource type="Script" path="res://worlds/yapper.gd" id="7_hqdw8"]
+[ext_resource type="PackedScene" uid="uid://o43k2vl0nf6h" path="res://prefabs/yapper.tscn" id="7_0kw6l"]
 [ext_resource type="PackedScene" uid="uid://d0qo416dox75d" path="res://prefabs/stripped_down_balloon.tscn" id="8_4cujq"]
+[ext_resource type="Script" path="res://worlds/god.gd" id="9_g2a6m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytvnc"]
 size = Vector2(1231.5, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0qqi"]
 size = Vector2(20, 498)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_6q4px"]
-radius = 353.396
 
 [node name="World" type="Node2D"]
 position = Vector2(-523, -2)
@@ -56,26 +53,19 @@ position = Vector2(608, 376)
 scale = Vector2(0.5, 0.1)
 texture = ExtResource("5_dnfut")
 
-[node name="Yapper" type="Sprite2D" parent="."]
-position = Vector2(684, 409)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_g8c3v")
-script = ExtResource("7_hqdw8")
-
-[node name="AudibleDialogueZone" type="Area2D" parent="Yapper"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Yapper/AudibleDialogueZone"]
-shape = SubResource("CircleShape2D_6q4px")
-
-[node name="Components" type="Node" parent="Yapper"]
-
-[node name="DialogueHandler" type="Node" parent="Yapper/Components"]
-
-[node name="DialogueTimer" type="Timer" parent="Yapper"]
-wait_time = 3.0
-autostart = true
+[node name="Yapper" parent="." instance=ExtResource("7_0kw6l")]
 
 [node name="Balloon" parent="." instance=ExtResource("8_4cujq")]
 
-[connection signal="body_entered" from="Yapper/AudibleDialogueZone" to="Yapper" method="_on_audible_dialogue_zone_body_entered"]
-[connection signal="timeout" from="Yapper/DialogueTimer" to="Yapper" method="_on_dialogue_timer_timeout"]
+[node name="God" type="Node" parent="."]
+script = ExtResource("9_g2a6m")
+
+[node name="Inventory" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Inventory"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
