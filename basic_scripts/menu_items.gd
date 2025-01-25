@@ -1,15 +1,17 @@
 extends Node
+class_name TeaMenu
 
-var translation = {
-	["Inexperienced", "Color"] : "Green",
-	["Exotic", "Pulp"]: "Mango"
-}
+enum Teas{Green_Mango}
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var menu = {["green", "mango"]: Teas.Green_Mango}
+var translator: SynonymTranslator
+func _init():
+	translator = SynonymTranslator.new()
 
+func translate_order(order):
+	var attempted_translation = null
+	var current_translation = []
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+			
+		
+		
