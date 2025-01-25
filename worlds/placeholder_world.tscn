@@ -49,6 +49,7 @@ shape = SubResource("RectangleShape2D_a0qqi")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_ye8v5")]
 z_index = 2
+position = Vector2(230, 273)
 script = ExtResource("3_hrha7")
 
 [node name="Camera" parent="." node_paths=PackedStringArray("thing_to_follow") instance=ExtResource("4_yd5d7")]
