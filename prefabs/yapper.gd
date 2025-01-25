@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 
 @export var placeholder_dialogue: DialogueResource = load("res://dialogue/placeholder.dialogue")
 var current_line: DialogueLine = null

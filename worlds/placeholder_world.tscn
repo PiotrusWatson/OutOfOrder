@@ -1,28 +1,23 @@
-[gd_scene load_steps=16 format=3 uid="uid://iecttj37eben"]
+[gd_scene load_steps=15 format=3 uid="uid://iecttj37eben"]
 
 [ext_resource type="Script" path="res://worlds/signals.gd" id="1_bodad"]
 [ext_resource type="Texture2D" uid="uid://2dp1eash0ipr" path="res://placeholder/Sam_Lake-MichaelFörtsch.jpg" id="1_cj4si"]
 [ext_resource type="PackedScene" uid="uid://1g4kseonxcrk" path="res://prefabs/player.tscn" id="2_ye8v5"]
-[ext_resource type="Script" path="res://prefabs/player.gd" id="3_hrha7"]
 [ext_resource type="PackedScene" uid="uid://b1w1rlrtubbm0" path="res://prefabs/camera.tscn" id="4_yd5d7"]
 [ext_resource type="Texture2D" uid="uid://cb1handcswdnd" path="res://placeholder/duo.jpg" id="5_dnfut"]
 [ext_resource type="PackedScene" uid="uid://o43k2vl0nf6h" path="res://prefabs/yapper.tscn" id="7_0kw6l"]
 [ext_resource type="PackedScene" uid="uid://d0qo416dox75d" path="res://prefabs/stripped_down_balloon.tscn" id="8_4cujq"]
-[ext_resource type="Script" path="res://worlds/god.gd" id="9_g2a6m"]
+[ext_resource type="Script" path="res://prefabs/god.gd" id="9_g2a6m"]
 [ext_resource type="PackedScene" uid="uid://bifc74gwgkwkc" path="res://prefabs/word_button.tscn" id="9_r7pgv"]
-[ext_resource type="Script" path="res://worlds/inventory.gd" id="11_dyo2e"]
+[ext_resource type="PackedScene" uid="uid://eevv3fvkot16" path="res://prefabs/inventory.tscn" id="11_y35q3"]
+[ext_resource type="PackedScene" uid="uid://dwt80p7kqmygh" path="res://prefabs/final_dialogue.tscn" id="12_2furq"]
+[ext_resource type="PackedScene" uid="uid://b50ep48ntx8cl" path="res://prefabs/buble_tea.tscn" id="12_fgaj4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytvnc"]
 size = Vector2(1231.5, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0qqi"]
 size = Vector2(20, 498)
-
-[sub_resource type="Gradient" id="Gradient_fn1cu"]
-offsets = PackedFloat32Array(0.993506, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_xat6n"]
-gradient = SubResource("Gradient_fn1cu")
 
 [node name="World" type="Node2D"]
 position = Vector2(-523, -2)
@@ -49,8 +44,7 @@ shape = SubResource("RectangleShape2D_a0qqi")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_ye8v5")]
 z_index = 2
-position = Vector2(230, 273)
-script = ExtResource("3_hrha7")
+position = Vector2(390, 388)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("thing_to_follow") instance=ExtResource("4_yd5d7")]
 position = Vector2(11, 0)
@@ -71,32 +65,9 @@ button_prefab = ExtResource("9_r7pgv")
 [node name="God" type="Node" parent="."]
 script = ExtResource("9_g2a6m")
 
-[node name="Inventory" type="CanvasLayer" parent="."]
-script = ExtResource("11_dyo2e")
-button_prefab = ExtResource("9_r7pgv")
+[node name="Inventory" parent="." instance=ExtResource("11_y35q3")]
 
-[node name="Control" type="Control" parent="Inventory"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="BubleTea" parent="." instance=ExtResource("12_fgaj4")]
+position = Vector2(1069, 413)
 
-[node name="TextureRect" type="TextureRect" parent="Inventory/Control"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 3.0
-offset_right = 3.0
-offset_bottom = 100.0
-grow_horizontal = 2
-texture = SubResource("GradientTexture1D_xat6n")
-
-[node name="WordBox" type="HBoxContainer" parent="Inventory/Control/TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="FinalDialogue" parent="." instance=ExtResource("12_2furq")]

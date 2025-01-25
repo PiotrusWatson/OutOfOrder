@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://osrf2x3wdkcr"]
+[gd_scene load_steps=5 format=3 uid="uid://osrf2x3wdkcr"]
 
 [ext_resource type="FontFile" uid="uid://qxopvowgib3v" path="res://textures/CHUBBY.TTF" id="1_47jy2"]
+[ext_resource type="Texture2D" uid="uid://cm7rep63rrrbv" path="res://textures/UI Button.png" id="1_hdehr"]
+[ext_resource type="Texture2D" uid="uid://btno7fo6hsjx8" path="res://textures/BackButton.png" id="3_86uaq"]
+[ext_resource type="Script" path="res://worlds/Backbutton.gd" id="4_sfr56"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -17,11 +20,57 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.4277, 0.91, 0.877847, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 230.0
-offset_top = 203.0
-offset_right = 750.0
-offset_bottom = 333.0
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 1088.0
+offset_bottom = 608.0
+texture = ExtResource("1_hdehr")
+
+[node name="TitleBox" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 24.0
+offset_right = 840.0
+offset_bottom = 154.0
+theme_override_colors/default_color = Color(0.425549, 0.77401, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("1_47jy2")
-text = "CREDITS"
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]CREDITS[/center]"
+
+[node name="Credits Box" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 140.0
+offset_right = 832.0
+offset_bottom = 592.0
+theme_override_colors/default_color = Color(0.466667, 0.788235, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_47jy2")
+theme_override_fonts/bold_font = ExtResource("1_47jy2")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 45
+bbcode_enabled = true
+text = "[center][b]Programming:[/b] 
+Piotrus Watson
+[b]Character Art:[/b] 
+Zoi Danai Asterataki
+[b]Background Art:[/b] 
+Alina Kumara
+[b]Writing and UI:[/b] 
+Juan Belío & Berk Dönmez"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 936.0
+offset_top = 472.0
+offset_right = 1066.0
+offset_bottom = 602.0
+icon = ExtResource("3_86uaq")
+flat = true
+script = ExtResource("4_sfr56")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

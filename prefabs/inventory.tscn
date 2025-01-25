@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://eevv3fvkot16"]
+
+[ext_resource type="Script" path="res://prefabs/inventory.gd" id="1_on7r5"]
+[ext_resource type="PackedScene" uid="uid://bifc74gwgkwkc" path="res://prefabs/word_button.tscn" id="2_us6tp"]
+
+[sub_resource type="Gradient" id="Gradient_fn1cu"]
+offsets = PackedFloat32Array(0.993506, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xat6n"]
+gradient = SubResource("Gradient_fn1cu")
+
+[node name="Inventory" type="CanvasLayer"]
+script = ExtResource("1_on7r5")
+button_prefab = ExtResource("2_us6tp")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 3.0
+offset_right = 3.0
+offset_bottom = 100.0
+grow_horizontal = 2
+texture = SubResource("GradientTexture1D_xat6n")
+
+[node name="WordBox" type="HBoxContainer" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
