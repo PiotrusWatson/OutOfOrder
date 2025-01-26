@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwt80p7kqmygh"]
+[gd_scene load_steps=5 format=3 uid="uid://cb07g8d44fira"]
 
 [ext_resource type="Script" path="res://prefabs/final_dialogue.gd" id="1_8x1in"]
 [ext_resource type="PackedScene" uid="uid://cywp20svcm6rm" path="res://prefabs/word_slot.tscn" id="2_b0mxd"]

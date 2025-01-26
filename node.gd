@@ -1,6 +1,6 @@
 extends Node
 
-@onready var label = $Label
+@onready var label = $CanvasLayer/Control/Label
 @onready var timer = $Timer
 
 func _ready():

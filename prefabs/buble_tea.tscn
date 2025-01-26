@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dr84x4kb4qp0c" path="res://prefabs/yipee.jpg" id="1_8jh1f"]
 [ext_resource type="Script" path="res://prefabs/buble_tea.gd" id="1_tpong"]
-[ext_resource type="Texture2D" uid="uid://charlqw6bdyhi" path="res://placeholder/wow_bubble.png" id="2_3tpw3"]
+[ext_resource type="Texture2D" uid="uid://bd0d4obis8c30" path="res://textures/CashRegister.png" id="3_x1vbs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sk3ft"]
 radius = 444.072
@@ -17,8 +17,9 @@ scale = Vector2(0.14, 0.14)
 texture = ExtResource("1_8jh1f")
 
 [node name="Stand" type="Sprite2D" parent="."]
+position = Vector2(-75, 0)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_3tpw3")
+texture = ExtResource("3_x1vbs")
 
 [node name="TriggerArea" type="Area2D" parent="."]
 scale = Vector2(0.2, 0.2)
