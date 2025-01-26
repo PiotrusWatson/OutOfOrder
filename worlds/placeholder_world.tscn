@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://iecttj37eben"]
+[gd_scene load_steps=22 format=3 uid="uid://iecttj37eben"]
 
 [ext_resource type="Script" path="res://worlds/signals.gd" id="1_bodad"]
 [ext_resource type="Texture2D" uid="uid://2dp1eash0ipr" path="res://placeholder/Sam_Lake-MichaelFörtsch.jpg" id="1_cj4si"]
@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://b50ep48ntx8cl" path="res://prefabs/buble_tea.tscn" id="12_fgaj4"]
 [ext_resource type="Script" path="res://worlds/exit_Shop.gd" id="14_vnm3y"]
 [ext_resource type="FontFile" uid="uid://qxopvowgib3v" path="res://textures/CHUBBY.TTF" id="15_aig64"]
+[ext_resource type="Texture2D" uid="uid://di74dsvqjsv7" path="res://textures/Chair.png" id="16_xhnls"]
+[ext_resource type="Texture2D" uid="uid://cw2gng8tej1ou" path="res://textures/Table.png" id="17_qkqeg"]
+[ext_resource type="Texture2D" uid="uid://c8jrbq4tqbrf" path="res://textures/Plant.png" id="18_102ik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytvnc"]
 size = Vector2(1231.5, 40)
@@ -70,7 +73,7 @@ scale = Vector2(0.293056, 0.293056)
 texture = ExtResource("6_hen1s")
 
 [node name="Background 2" type="Sprite2D" parent="."]
-position = Vector2(530.125, 385)
+position = Vector2(530, 385)
 scale = Vector2(0.293056, 0.293056)
 texture = ExtResource("6_hen1s")
 
@@ -138,6 +141,43 @@ grow_vertical = 0
 theme_override_fonts/normal_font = ExtResource("15_aig64")
 theme_override_font_sizes/normal_font_size = 50
 text = "Press E to exit  Shop"
+
+[node name="Decoration" type="Node2D" parent="."]
+
+[node name="Chair" type="Sprite2D" parent="Decoration"]
+position = Vector2(500, 390)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("16_xhnls")
+
+[node name="Chair" type="Sprite2D" parent="Decoration/Chair"]
+position = Vector2(-360, 0)
+texture = ExtResource("16_xhnls")
+flip_h = true
+
+[node name="Table" type="Sprite2D" parent="Decoration"]
+position = Vector2(500, 390)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("17_qkqeg")
+
+[node name="Chair2" type="Sprite2D" parent="Decoration"]
+position = Vector2(200, 390)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("16_xhnls")
+
+[node name="Chair" type="Sprite2D" parent="Decoration/Chair2"]
+position = Vector2(-360, 0)
+texture = ExtResource("16_xhnls")
+flip_h = true
+
+[node name="Table2" type="Sprite2D" parent="Decoration"]
+position = Vector2(200, 390)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("17_qkqeg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Decoration"]
+position = Vector2(450, 400)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("18_102ik")
 
 [connection signal="body_entered" from="ExitCollider" to="ExitCollider" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="ExitCollider" to="ExitCollider" method="_on_area_2d_body_exited"]
