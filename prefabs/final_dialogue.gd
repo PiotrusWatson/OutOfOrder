@@ -9,7 +9,7 @@ extends CanvasLayer
 var answers = []
 var answer_index = 0
 signal order_submitted(order)
-
+var item
 func show_dialogue():
 	visible = true
 	
@@ -62,6 +62,20 @@ func show_results_of_order(result):
 	if result["status"] == Globals.Results.INCOMPLETE:
 		vendor_question.text = "Vendor: Really unsure what ur saying there m8. You want the " + result["item"] + "?"
 		vendor_question.visible = true
-
+	var item = result["item"]
 func _on_submit_answer_pressed() -> void:
 	submit_order()
+
+
+func _on_yes_pressed() -> void:
+	vendor_response.text = "Vendor: Why didn't you say so??? OK! One " + item + " coming up"
+	vendor_response.visible = true
+
+
+func _on_no_pressed() -> void:
+	vendor_response.text = "Vendor: I have no idea what you're saying. Leave"
+	vendor_response.visible = true
+
+
+func _on_close_pressed() -> void:
+	hide_dialogue()

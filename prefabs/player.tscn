@@ -1,17 +1,50 @@
-[gd_scene load_steps=9 format=3 uid="uid://1g4kseonxcrk"]
+[gd_scene load_steps=13 format=3 uid="uid://1g4kseonxcrk"]
 
 [ext_resource type="Texture2D" uid="uid://b7tcmgeiojdda" path="res://prefabs/IDLE.png" id="1_654cs"]
 [ext_resource type="Script" path="res://prefabs/player.gd" id="1_ybg4a"]
 [ext_resource type="Texture2D" uid="uid://be5xp38f7sqa6" path="res://prefabs/FACE_IDLE.png" id="2_d0o8d"]
 [ext_resource type="Script" path="res://prefabs/mover.gd" id="2_twjvn"]
 [ext_resource type="Texture2D" uid="uid://u6rxwhsjuj4g" path="res://prefabs/FACE_IDLE_BLINK.png" id="3_nrj2m"]
-[ext_resource type="PackedScene" uid="uid://d0uyknj012u22" path="res://worlds/countdown.tscn" id="6_uriim"]
+[ext_resource type="Texture2D" uid="uid://g7edvtk20sn7" path="res://prefabs/HAND_UP.png" id="3_v288c"]
+[ext_resource type="Texture2D" uid="uid://clj8b54we0xt2" path="res://prefabs/TIME_BACK.png" id="4_ab01y"]
+[ext_resource type="Texture2D" uid="uid://cn4njek5n1i0b" path="res://prefabs/FACE_THINKING.png" id="5_o3753"]
+[ext_resource type="PackedScene" path="res://worlds/countdown.tscn" id="6_uriim"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_018eu"]
 height = 46.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_pjc0l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_654cs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("3_v288c")
+}, {
+"duration": 6.0,
+"texture": ExtResource("4_ab01y")
+}],
+"loop": false,
+"name": &"time_travel",
+"speed": 5.0
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_qk27t"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_o3753")
+}],
+"loop": true,
+"name": &"constipated",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 10.0,
 "texture": ExtResource("2_d0o8d")
@@ -31,16 +64,16 @@ script = ExtResource("1_ybg4a")
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_018eu")
 
-[node name="Body" type="Sprite2D" parent="."]
+[node name="Body" type="AnimatedSprite2D" parent="."]
 position = Vector2(2.38419e-07, -0.281248)
 scale = Vector2(0.0481283, 0.0580074)
-texture = ExtResource("1_654cs")
+sprite_frames = SubResource("SpriteFrames_pjc0l")
+animation = &"time_travel"
 
 [node name="Face" type="AnimatedSprite2D" parent="Body"]
 position = Vector2(62.3335, -322.696)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_qk27t")
-frame_progress = 0.403695
 
 [node name="Components" type="Node" parent="."]
 
@@ -49,3 +82,6 @@ script = ExtResource("2_twjvn")
 speed = 100.0
 
 [node name="Countdown" parent="." instance=ExtResource("6_uriim")]
+
+[connection signal="animation_changed" from="Body" to="." method="_on_body_animation_changed"]
+[connection signal="animation_finished" from="Body" to="." method="_on_body_animation_finished"]

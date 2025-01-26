@@ -7,8 +7,13 @@ signal gave_a_menu_item(result)
 var menu_parser: TeaMenu
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	menu_parser = TeaMenu.new()
+	pass
 
+func make_ready():
+	menu_parser = TeaMenu.new()
+	word_inventory = Globals.inventory_across_time
+	print(word_inventory)
+	inventory_updated.emit(word_inventory.keys())
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -30,3 +35,6 @@ func parse_order(order):
 	var result = menu_parser.process_order(order)
 	gave_a_menu_item.emit(result)
 		
+func time_travel():
+	Globals.inventory_across_time = word_inventory
+	get_tree().change_scene_to_file("res://worlds/placeholder_world.tscn")

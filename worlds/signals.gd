@@ -6,6 +6,7 @@ extends Node2D
 @onready var inventory = $Inventory
 @onready var final_dialogue = $FinalDialogue
 @onready var buble_tea = $BubleTea
+@onready var player = $Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,7 +22,8 @@ func _ready() -> void:
 	buble_tea.player_out_of_range.connect(final_dialogue.hide_dialogue)
 	final_dialogue.order_submitted.connect(god.parse_order)
 	god.gave_a_menu_item.connect(final_dialogue.show_results_of_order)
-
+	player.time_travel_triggered.connect(god.time_travel)
+	god.make_ready()
 # Callded every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

@@ -87,7 +87,6 @@ texture = ExtResource("6_hen1s")
 [node name="Yapper" parent="." instance=ExtResource("7_0kw6l")]
 
 [node name="FinalDialogue" parent="." instance=ExtResource("12_2furq")]
-visible = false
 
 [node name="Balloon" parent="." instance=ExtResource("8_4cujq")]
 layer = 2
@@ -119,6 +118,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="InteractTooltip" type="RichTextLabel" parent="CanvasLayer/Control"]
 visible = false
