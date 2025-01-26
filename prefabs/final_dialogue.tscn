@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" path="res://prefabs/word_slot.tscn" id="2_b0mxd"]
 
 [sub_resource type="Gradient" id="Gradient_35l33"]
-offsets = PackedFloat32Array(0.974026, 1)
+offsets = PackedFloat32Array(0.590909, 0.74026, 0.974026, 1)
+colors = PackedColorArray(0.556863, 0, 0, 1, 0, 0.482353, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_pg3qg"]
 gradient = SubResource("Gradient_35l33")
@@ -23,16 +24,16 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 2.0
-offset_top = -178.0
-offset_right = 2.0
-offset_bottom = 122.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -160.0
+offset_right = 260.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 texture = SubResource("GradientTexture1D_pg3qg")
 
 [node name="Vendor Question" type="Label" parent="Control/TextureRect"]
