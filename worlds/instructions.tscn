@@ -53,7 +53,7 @@ words that resemble your order by clicking on them.
 words, go ahead and order!
 - Don't worry if you can't help Hubert 
 order their dream tea at first, they're 
-a veteran time traveller."
+a veteran time traveler."
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 1
