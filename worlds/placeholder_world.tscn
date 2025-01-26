@@ -83,6 +83,7 @@ texture = ExtResource("6_js38w")
 [node name="FinalDialogue" parent="." instance=ExtResource("12_2furq")]
 
 [node name="Balloon" parent="." instance=ExtResource("8_4cujq")]
+layer = 2
 visible = false
 button_prefab = ExtResource("9_r7pgv")
 

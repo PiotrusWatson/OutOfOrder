@@ -9,11 +9,13 @@ func _ready() -> void:
 	hide_balloon()
 	
 func show_balloon(text):
+	layer = 2
 	update_text(text)
 	visible = true
 	
 func hide_balloon():
 	visible = false
+	layer = -1
 
 func update_text(text):
 	wipe_text()

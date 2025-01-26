@@ -16,6 +16,7 @@ func _ready() -> void:
 		yapper.player_cannot_hear.connect(dialogue_balloon.hide_balloon)
 	dialogue_balloon.word_picked.connect(god.add_and_trim_word)
 	god.inventory_updated.connect(inventory.update_word_pile)
+	inventory.word_selected.connect(final_dialogue.fill_answer_at_index)
 	buble_tea.player_in_range.connect(final_dialogue.show_dialogue)
 	buble_tea.player_out_of_range.connect(final_dialogue.hide_dialogue)
 
