@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var placeholder_dialogue: DialogueResource = load("res://dialogue/placeholder.dialogue")
+@export var placeholder_dialogue: DialogueResource
 var current_line: DialogueLine = null
 signal player_can_hear(text)
 signal player_cannot_hear()

@@ -53,7 +53,6 @@ func _process(delta: float) -> void:
 	pass
 	
 func show_results_of_order(result):
-	
 	if result["status"] == Globals.Results.COMPLETE:
 		vendor_response.text = "Vendor: Alright. One " + result["item"] + " coming right up"
 		vendor_response.visible = true
@@ -63,5 +62,6 @@ func show_results_of_order(result):
 	if result["status"] == Globals.Results.INCOMPLETE:
 		vendor_question.text = "Vendor: Really unsure what ur saying there m8. You want the " + result["item"] + "?"
 		vendor_question.visible = true
+
 func _on_submit_answer_pressed() -> void:
 	submit_order()
