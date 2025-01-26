@@ -80,6 +80,8 @@ texture = ExtResource("6_js38w")
 
 [node name="Yapper" parent="." instance=ExtResource("7_0kw6l")]
 
+[node name="FinalDialogue" parent="." instance=ExtResource("12_2furq")]
+
 [node name="Balloon" parent="." instance=ExtResource("8_4cujq")]
 visible = false
 button_prefab = ExtResource("9_r7pgv")
@@ -91,5 +93,3 @@ script = ExtResource("9_g2a6m")
 
 [node name="BubleTea" parent="." instance=ExtResource("12_fgaj4")]
 position = Vector2(1069, 413)
-
-[node name="FinalDialogue" parent="." instance=ExtResource("12_2furq")]
