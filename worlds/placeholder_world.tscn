@@ -100,6 +100,7 @@ script = ExtResource("9_g2a6m")
 [node name="Inventory" parent="." instance=ExtResource("11_y35q3")]
 
 [node name="BubleTea" parent="." instance=ExtResource("12_fgaj4")]
+z_index = 1
 position = Vector2(1069, 413)
 
 [node name="ExitCollider" type="Area2D" parent="."]
