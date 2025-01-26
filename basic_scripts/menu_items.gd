@@ -1,10 +1,9 @@
 extends Node
 class_name TeaMenu
 
-enum Results {COMPLETE, INCOMPLETE, BROKEN_UP, FAIL}
-enum Teas{Green_Mango}
 
-var menu = {["green", "mango"]: Teas.Green_Mango}
+
+var menu = {["green", "mango"]: "Green Tea With Mango"}
 var words_to_keys = {}
 
 var translator: SynonymTranslator
@@ -60,13 +59,13 @@ func process_order(order):
 	var incomplete_order = null
 	for info in found_info:
 		if is_order_complete(info):
-			return {"status": Results.COMPLETE, "item": get_item_from_info(info)}
+			return {"status": Globals.Results.COMPLETE, "item": get_item_from_info(info)}
 		if is_order_incomplete(info):
 			incomplete_order = info
 	
 	if incomplete_order != null:
-		return {"status": Results.INCOMPLETE, "item": get_item_from_info(incomplete_order)}
-	return {"status": Results.FAIL, "item": null}
+		return {"status": Globals.Results.INCOMPLETE, "item": get_item_from_info(incomplete_order)}
+	return {"status": Globals.Results.FAIL, "item": null}
 	
 	
 	
