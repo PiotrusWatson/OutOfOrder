@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://ubij011ji7tk"]
+[gd_scene load_steps=19 format=3 uid="uid://ubij011ji7tk"]
 
-[ext_resource type="Script" path="res://worlds/signals.gd" id="1_xfka6"]
+[ext_resource type="Script" path="res://worlds/outside_signals.gd" id="1_p47hp"]
 [ext_resource type="Texture2D" uid="uid://2dp1eash0ipr" path="res://placeholder/Sam_Lake-MichaelFörtsch.jpg" id="2_1oymn"]
 [ext_resource type="PackedScene" uid="uid://1g4kseonxcrk" path="res://prefabs/player.tscn" id="3_s7frk"]
 [ext_resource type="PackedScene" uid="uid://b1w1rlrtubbm0" path="res://prefabs/camera.tscn" id="4_w4v6n"]
@@ -12,6 +12,9 @@
 [ext_resource type="Script" path="res://prefabs/god.gd" id="10_rcsvn"]
 [ext_resource type="PackedScene" uid="uid://eevv3fvkot16" path="res://prefabs/inventory.tscn" id="11_qfaom"]
 [ext_resource type="AudioStream" uid="uid://blfukl7ca3jcq" path="res://sounds/LoFi for a game.wav" id="12_5snib"]
+[ext_resource type="Texture2D" uid="uid://yuf8nrvkquqt" path="res://textures/Street Sign.png" id="13_csife"]
+[ext_resource type="Script" path="res://worlds/Access_Shop.gd" id="14_kvq0h"]
+[ext_resource type="FontFile" uid="uid://qxopvowgib3v" path="res://textures/CHUBBY.TTF" id="15_4hndt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytvnc"]
 size = Vector2(1231.5, 40)
@@ -19,9 +22,12 @@ size = Vector2(1231.5, 40)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0qqi"]
 size = Vector2(20, 498)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_au3vl"]
+size = Vector2(43.15, 69.365)
+
 [node name="World" type="Node2D"]
 position = Vector2(-523, -2)
-script = ExtResource("1_xfka6")
+script = ExtResource("1_p47hp")
 
 [node name="Boundaries" type="StaticBody2D" parent="."]
 
@@ -90,3 +96,44 @@ script = ExtResource("10_rcsvn")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_5snib")
 autoplay = true
+
+[node name="Street Sign" type="Sprite2D" parent="."]
+position = Vector2(1007, 354)
+scale = Vector2(0.11087, 0.11087)
+texture = ExtResource("13_csife")
+
+[node name="AccessShopCollider" type="Node2D" parent="."]
+position = Vector2(1005.46, 399.775)
+script = ExtResource("14_kvq0h")
+
+[node name="Area2D" type="Area2D" parent="AccessShopCollider"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AccessShopCollider/Area2D"]
+shape = SubResource("RectangleShape2D_au3vl")
+
+[node name="Control" type="Control" parent="."]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InteractTooltip" type="RichTextLabel" parent="Control"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.515
+offset_top = -20.0
+offset_right = 51.485
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("15_4hndt")
+text = "Press E to enter Shop"
+
+[connection signal="body_entered" from="AccessShopCollider/Area2D" to="AccessShopCollider" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="AccessShopCollider/Area2D" to="AccessShopCollider" method="_on_area_2d_body_exited"]
