@@ -86,7 +86,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Submit Order"
 
-[node name="VendorResponse" type="Label" parent="Control/TextureRect"]
+[node name="VendorQuestion" type="Label" parent="Control/TextureRect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.041
@@ -97,20 +97,28 @@ offset_right = 258.23
 offset_bottom = 95.977
 text = "Vendor: Do you mean the Green Tea?"
 
-[node name="Yes" type="Button" parent="Control/TextureRect/VendorResponse"]
+[node name="Yes" type="Button" parent="Control/TextureRect/VendorQuestion"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 47.0
-offset_right = 96.0
-offset_bottom = 78.0
+offset_left = 11.0
+offset_top = 37.0
+offset_right = 97.0
+offset_bottom = 68.0
 text = "Y-Y-Yes???"
 
-[node name="Button" type="Button" parent="Control/TextureRect/VendorResponse"]
+[node name="No" type="Button" parent="Control/TextureRect/VendorQuestion"]
 layout_mode = 0
-offset_left = 116.0
-offset_top = 44.0
-offset_right = 237.0
-offset_bottom = 75.0
+offset_left = 121.0
+offset_top = 34.0
+offset_right = 242.0
+offset_bottom = 65.0
 text = "oh... uh... no...."
+
+[node name="VendorResponse" type="Label" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 100.0
+offset_right = 489.0
+offset_bottom = 123.0
+text = "Vendor: One green tea, coming right up!"
 
 [connection signal="pressed" from="Control/TextureRect/SubmitAnswer" to="." method="_on_submit_answer_pressed"]
