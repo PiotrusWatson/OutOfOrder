@@ -81,6 +81,7 @@ texture = ExtResource("6_js38w")
 [node name="Yapper" parent="." instance=ExtResource("7_0kw6l")]
 
 [node name="Balloon" parent="." instance=ExtResource("8_4cujq")]
+visible = false
 button_prefab = ExtResource("9_r7pgv")
 
 [node name="God" type="Node" parent="."]
