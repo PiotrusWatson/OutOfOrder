@@ -47,7 +47,7 @@ func get_item_from_info(words_to_found):
 
 func process_order(order):
 	if !order_is_relevant(order):
-		return null
+		return {"status": Globals.Results.FAIL, "item": null}
 	var synonymd_order = translator.get_all_relevant_words_in_order(order)
 	var keys = []
 	for word in synonymd_order:

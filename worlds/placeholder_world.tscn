@@ -1,11 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://iecttj37eben"]
+[gd_scene load_steps=19 format=3 uid="uid://iecttj37eben"]
 
 [ext_resource type="Script" path="res://worlds/signals.gd" id="1_bodad"]
 [ext_resource type="Texture2D" uid="uid://2dp1eash0ipr" path="res://placeholder/Sam_Lake-MichaelFörtsch.jpg" id="1_cj4si"]
 [ext_resource type="PackedScene" uid="uid://1g4kseonxcrk" path="res://prefabs/player.tscn" id="2_ye8v5"]
 [ext_resource type="PackedScene" uid="uid://b1w1rlrtubbm0" path="res://prefabs/camera.tscn" id="4_yd5d7"]
 [ext_resource type="Texture2D" uid="uid://cb1handcswdnd" path="res://placeholder/duo.jpg" id="5_dnfut"]
-[ext_resource type="Texture2D" uid="uid://boslibyqt84nx" path="res://textures/Street_Background.jpg" id="6_js38w"]
+[ext_resource type="Texture2D" uid="uid://br3awe0ol3m0a" path="res://textures/Inside_Background.jpg" id="6_hen1s"]
 [ext_resource type="PackedScene" uid="uid://o43k2vl0nf6h" path="res://prefabs/yapper.tscn" id="7_0kw6l"]
 [ext_resource type="PackedScene" uid="uid://d0qo416dox75d" path="res://prefabs/stripped_down_balloon.tscn" id="8_4cujq"]
 [ext_resource type="Script" path="res://prefabs/god.gd" id="9_g2a6m"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://eevv3fvkot16" path="res://prefabs/inventory.tscn" id="11_y35q3"]
 [ext_resource type="PackedScene" uid="uid://cb07g8d44fira" path="res://prefabs/final_dialogue.tscn" id="12_2furq"]
 [ext_resource type="PackedScene" uid="uid://b50ep48ntx8cl" path="res://prefabs/buble_tea.tscn" id="12_fgaj4"]
+[ext_resource type="Script" path="res://worlds/exit_Shop.gd" id="14_vnm3y"]
+[ext_resource type="FontFile" uid="uid://qxopvowgib3v" path="res://textures/CHUBBY.TTF" id="15_aig64"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytvnc"]
 size = Vector2(1231.5, 40)
@@ -20,7 +22,10 @@ size = Vector2(1231.5, 40)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0qqi"]
 size = Vector2(20, 498)
 
-[node name="World" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6bx2"]
+size = Vector2(27.9, 65.515)
+
+[node name="World2" type="Node2D"]
 position = Vector2(-523, -2)
 script = ExtResource("1_bodad")
 
@@ -45,7 +50,8 @@ shape = SubResource("RectangleShape2D_a0qqi")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_ye8v5")]
 z_index = 2
-position = Vector2(390, 388)
+position = Vector2(390, 422.305)
+scale = Vector2(1.5, 1.5)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("thing_to_follow") instance=ExtResource("4_yd5d7")]
 position = Vector2(11, 0)
@@ -61,26 +67,31 @@ texture = ExtResource("5_dnfut")
 [node name="Background 1" type="Sprite2D" parent="."]
 position = Vector2(155, 385)
 scale = Vector2(0.293056, 0.293056)
-texture = ExtResource("6_js38w")
+texture = ExtResource("6_hen1s")
 
 [node name="Background 2" type="Sprite2D" parent="."]
 position = Vector2(530.125, 385)
 scale = Vector2(0.293056, 0.293056)
-texture = ExtResource("6_js38w")
+texture = ExtResource("6_hen1s")
 
 [node name="Background 3" type="Sprite2D" parent="."]
 position = Vector2(905, 385)
 scale = Vector2(0.293056, 0.293056)
-texture = ExtResource("6_js38w")
+texture = ExtResource("6_hen1s")
 
 [node name="Background 4" type="Sprite2D" parent="."]
 position = Vector2(1280, 385)
 scale = Vector2(0.293056, 0.293056)
-texture = ExtResource("6_js38w")
+texture = ExtResource("6_hen1s")
 
 [node name="Yapper" parent="." instance=ExtResource("7_0kw6l")]
 
+[node name="FinalDialogue" parent="." instance=ExtResource("12_2furq")]
+visible = false
+
 [node name="Balloon" parent="." instance=ExtResource("8_4cujq")]
+layer = 2
+visible = false
 button_prefab = ExtResource("9_r7pgv")
 
 [node name="God" type="Node" parent="."]
@@ -91,4 +102,41 @@ script = ExtResource("9_g2a6m")
 [node name="BubleTea" parent="." instance=ExtResource("12_fgaj4")]
 position = Vector2(1069, 413)
 
-[node name="FinalDialogue" parent="." instance=ExtResource("12_2furq")]
+[node name="ExitCollider" type="Area2D" parent="."]
+position = Vector2(55.195, 429.195)
+script = ExtResource("14_vnm3y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitCollider"]
+shape = SubResource("RectangleShape2D_q6bx2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InteractTooltip" type="RichTextLabel" parent="CanvasLayer/Control"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -226.0
+offset_top = -86.77
+offset_right = 226.0
+offset_bottom = -18.77
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("15_aig64")
+theme_override_font_sizes/normal_font_size = 50
+text = "Press E to exit  Shop"
+
+[connection signal="body_entered" from="ExitCollider" to="ExitCollider" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="ExitCollider" to="ExitCollider" method="_on_area_2d_body_exited"]
