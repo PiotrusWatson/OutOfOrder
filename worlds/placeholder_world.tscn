@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://iecttj37eben"]
+[gd_scene load_steps=16 format=3 uid="uid://iecttj37eben"]
 
 [ext_resource type="Script" path="res://worlds/signals.gd" id="1_bodad"]
 [ext_resource type="Texture2D" uid="uid://2dp1eash0ipr" path="res://placeholder/Sam_Lake-MichaelFörtsch.jpg" id="1_cj4si"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://boslibyqt84nx" path="res://textures/Street_Background.jpg" id="6_js38w"]
 [ext_resource type="PackedScene" uid="uid://o43k2vl0nf6h" path="res://prefabs/yapper.tscn" id="7_0kw6l"]
 [ext_resource type="PackedScene" uid="uid://d0qo416dox75d" path="res://prefabs/stripped_down_balloon.tscn" id="8_4cujq"]
-[ext_resource type="Resource" uid="uid://b0chqyvrewc25" path="res://dialogue/Conversation a).dialogue" id="8_65mnd"]
 [ext_resource type="Script" path="res://prefabs/god.gd" id="9_g2a6m"]
 [ext_resource type="PackedScene" uid="uid://bifc74gwgkwkc" path="res://prefabs/word_button.tscn" id="9_r7pgv"]
 [ext_resource type="PackedScene" uid="uid://eevv3fvkot16" path="res://prefabs/inventory.tscn" id="11_y35q3"]
@@ -80,7 +79,6 @@ scale = Vector2(0.293056, 0.293056)
 texture = ExtResource("6_js38w")
 
 [node name="Yapper" parent="." instance=ExtResource("7_0kw6l")]
-placeholder_dialogue = ExtResource("8_65mnd")
 
 [node name="FinalDialogue" parent="." instance=ExtResource("12_2furq")]
 
