@@ -19,6 +19,8 @@ func _ready() -> void:
 	inventory.word_selected.connect(final_dialogue.fill_answer_at_index)
 	buble_tea.player_in_range.connect(final_dialogue.show_dialogue)
 	buble_tea.player_out_of_range.connect(final_dialogue.hide_dialogue)
+	final_dialogue.order_submitted.connect(god.parse_order)
+	god.gave_a_menu_item.connect(final_dialogue.show_results_of_order)
 
 # Callded every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
