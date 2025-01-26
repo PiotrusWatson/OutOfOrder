@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://1g4kseonxcrk"]
+[gd_scene load_steps=9 format=3 uid="uid://1g4kseonxcrk"]
 
 [ext_resource type="Texture2D" uid="uid://b7tcmgeiojdda" path="res://prefabs/IDLE.png" id="1_654cs"]
 [ext_resource type="Script" path="res://prefabs/player.gd" id="1_ybg4a"]
 [ext_resource type="Texture2D" uid="uid://be5xp38f7sqa6" path="res://prefabs/FACE_IDLE.png" id="2_d0o8d"]
 [ext_resource type="Script" path="res://prefabs/mover.gd" id="2_twjvn"]
 [ext_resource type="Texture2D" uid="uid://u6rxwhsjuj4g" path="res://prefabs/FACE_IDLE_BLINK.png" id="3_nrj2m"]
+[ext_resource type="PackedScene" uid="uid://d0uyknj012u22" path="res://worlds/countdown.tscn" id="6_uriim"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_018eu"]
 height = 46.0
@@ -46,3 +47,5 @@ frame_progress = 0.403695
 [node name="Mover" type="Node" parent="Components"]
 script = ExtResource("2_twjvn")
 speed = 100.0
+
+[node name="Countdown" parent="." instance=ExtResource("6_uriim")]
