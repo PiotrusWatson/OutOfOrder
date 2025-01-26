@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://o43k2vl0nf6h"]
+[gd_scene load_steps=9 format=3 uid="uid://o43k2vl0nf6h"]
 
-[ext_resource type="Texture2D" uid="uid://br3mkbdxqkpdf" path="res://placeholder/hackerman2.jpeg" id="1_1vij2"]
 [ext_resource type="Script" path="res://prefabs/yapper.gd" id="2_2ia1d"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="2_d1stb"]
 [ext_resource type="Resource" uid="uid://b0chqyvrewc25" path="res://dialogue/Conversation a).dialogue" id="3_0rfda"]
 [ext_resource type="Resource" uid="uid://dwxyplmbb8phb" path="res://dialogue/Conversation b).dialogue" id="4_xlf42"]
+[ext_resource type="Texture2D" uid="uid://bgdmxqpkcgca8" path="res://basic_scripts/NPC_2.png" id="5_koeuw"]
+[ext_resource type="Texture2D" uid="uid://uuwj07kk7nj5" path="res://basic_scripts/NPC_2_ALT.png" id="6_l6ond"]
 [ext_resource type="Texture2D" uid="uid://dfp60jhldygil" path="res://textures/Dialogue Box.png" id="6_pkv1w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6q4px"]
@@ -27,10 +28,16 @@ shape = SubResource("CircleShape2D_6q4px")
 [node name="DialogueTimer" type="Timer" parent="."]
 wait_time = 3.0
 
-[node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(8, -5)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_1vij2")
+[node name="Person1" type="Sprite2D" parent="."]
+position = Vector2(39, -4)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_koeuw")
+
+[node name="Person2" type="Sprite2D" parent="."]
+position = Vector2(-21, -4)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_l6ond")
+flip_h = true
 
 [node name="DialogueStartTimer" type="Timer" parent="."]
 wait_time = 10.0

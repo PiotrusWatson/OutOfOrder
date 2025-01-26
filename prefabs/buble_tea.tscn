@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b50ep48ntx8cl"]
 
-[ext_resource type="Texture2D" uid="uid://dr84x4kb4qp0c" path="res://prefabs/yipee.jpg" id="1_8jh1f"]
 [ext_resource type="Script" path="res://prefabs/buble_tea.gd" id="1_tpong"]
+[ext_resource type="Texture2D" uid="uid://bu3oj4jg3pjii" path="res://textures/Vendor.png" id="2_lqi3e"]
 [ext_resource type="Texture2D" uid="uid://bd0d4obis8c30" path="res://textures/CashRegister.png" id="3_x1vbs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sk3ft"]
@@ -12,9 +12,9 @@ script = ExtResource("1_tpong")
 
 [node name="Vendor" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(-16, -38)
-scale = Vector2(0.14, 0.14)
-texture = ExtResource("1_8jh1f")
+position = Vector2(-63.76, 7.14)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_lqi3e")
 
 [node name="Stand" type="Sprite2D" parent="."]
 position = Vector2(-75, 0)

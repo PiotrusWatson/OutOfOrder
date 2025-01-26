@@ -48,3 +48,5 @@ offset_bottom = 59.67
 grow_vertical = 0
 scale = Vector2(1, 0.5)
 texture = ExtResource("2_kyrb5")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

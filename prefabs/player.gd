@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var body = $Body
 @onready var face = $Body/Face
 signal time_travel_triggered
+@onready var timer = $Countdown
+
 func _ready():
 	mover.init(self)
 	face.play()
