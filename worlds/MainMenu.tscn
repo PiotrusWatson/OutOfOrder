@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7m12qi47yq6q"]
+[gd_scene load_steps=11 format=3 uid="uid://b7m12qi47yq6q"]
 
 [ext_resource type="Texture2D" uid="uid://qkyqtuvra4ab" path="res://textures/Play Button.png" id="1_dv6a0"]
 [ext_resource type="Texture2D" uid="uid://dug1bmnkmvcc5" path="res://textures/Exit Button.png" id="1_jin4g"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://worlds/exit.gd" id="5_3qvjo"]
 [ext_resource type="Script" path="res://worlds/creditsButton.gd" id="5_bskbm"]
 [ext_resource type="Texture2D" uid="uid://bpjkqn71ng834" path="res://textures/Title Asset.png" id="5_hhmdk"]
+[ext_resource type="AudioStream" uid="uid://b41ykv7yxejno" path="res://sounds/LoFi-menu-music-vers-3.wav" id="10_v23xn"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -73,6 +74,10 @@ offset_bottom = 607.0
 icon = ExtResource("1_jin4g")
 flat = true
 script = ExtResource("5_3qvjo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_v23xn")
+autoplay = true
 
 [connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
 [connection signal="pressed" from="Instructions" to="Instructions" method="_on_pressed"]
